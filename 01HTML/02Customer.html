@@ -1,0 +1,2138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwinGear Moto Portal</title>
+    <link rel="stylesheet" href="../02CSS/00MainDesign.css"> <!-- Main Design -->
+    <link rel="stylesheet" href="../02CSS/01Dashboard.css"> <!-- Dashboard Design -->
+    <link rel="stylesheet" href="../02CSS/02Customer.css"><!-- Customer Content  Design -->
+    <link rel="stylesheet" href="../02CSS/03TicketBucket.css"><!-- Ticket Bucket Content  Design -->
+    <link rel="stylesheet" href="../02CSS/04MyProfile.css"><!-- My Profile Content  Design -->
+    <link rel="stylesheet" href="../02CSS/05Employee.css"><!-- Employee Content  Design -->
+    <link rel="stylesheet" href="../02CSS/06Commission.css"><!-- Commission Record Content  Design -->
+    <link rel="stylesheet" href="../02CSS/07Branches.css"><!-- Branches Content  Design -->
+    <link rel="stylesheet" href="../02CSS/08MotorPricelist.css"><!-- Motor Pricelist Content  Design -->
+    <link rel="stylesheet" href="../02CSS/09ArchiveFile.css"><!-- Archive File Content  Design -->
+
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Icons Link -->
+    <link rel="icon" type="image/png" href="../00Resource/LOGO.webp"> <!-- Picture Icon -->
+
+</head>
+<body>
+
+<div class="app-container">
+
+<!-- SIDEBAR -->
+    <aside class="sidebar">
+
+
+        <div class="company">
+            <div class="company-logo">
+                <img src="../00Resource/LOGO.webp" alt="TGM" width="100" height="100" bgcolor="fff">
+            </div>
+            <div>
+                <h2>TwinGear Moto</h2>
+                <p>Application Portal</p>
+            </div>
+        </div>
+
+        <div class="employee">
+            <div class="employee-avatar">EM</div>
+            <div>
+                <h3>Employee Name</h3>
+                <p>Employee Position</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <h4>WORKSPACE</h4>
+
+            <a href="../01HTML/01Dashboard.html" class="menu-link" data-page="Dashboard">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span class="menu-icon">Dashboard</span>
+            </a>
+
+            <a href="#" class="menu-link active" data-page="Customer">
+                <i class="fa-solid fa-users"></i>
+                <span class="menu-icon">Customer</span>
+                
+            </a>
+
+            <a href="../01HTML/03TicketBucket.html" class="menu-link" data-page="Ticket Bucket">
+                <i class="fa-solid fa-ticket"></i>
+                <span class="menu-icon">Ticket Bucket</span>
+            </a>
+
+
+            <br><h4>MANAGEMENT</h4>
+
+            <a href="../01HTML/04MyProfile.html" class="menu-link" data-page="My Profile">
+                <i class="fa-solid fa-user-circle"></i>
+                <span class="menu-icon">My Profile</span>
+            </a>
+
+            <a href="../01HTML/05Employee.html" class="menu-link" data-page="Employee's Profile">
+                <i class="fa-solid fa-user-tie"></i>
+                <span class="menu-icon">Employee's Profile</span>
+            </a>
+
+            <a href="../01HTML/06Commission.html" class="menu-link" data-page="Commission Records">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <span class="menu-icon">Commission Records</span>
+            </a>
+
+            <a href="../01HTML/07Branches.html" class="menu-link" data-page="Branches">
+                <i class="fa-solid fa-code-branch"></i>
+                <span class="menu-icon">Branches</span>
+            </a>
+
+            <a href="../01HTML/08MotorPricelist.html" class="menu-link" data-page="Motor Pricelist">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span class="menu-icon">Motor Pricelist</span>
+            </a>
+
+            <a href="../01HTML/09ArchiveFile.html" class="menu-link" data-page="Archive Files">
+                <i class="fa-solid fa-box-archive"></i>
+                <span class="menu-icon">Archive File's</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <a href ="../index.html">LOG OUT</a>
+            </button>
+        </div>
+
+    </aside>
+<!-- END OF SIDE BAR -->
+
+<!-- TOP BAR -->
+        <header class="top-header">
+
+            <div class="breadcrumb">
+                <span>WORKSPACE</span>
+                <b>/</b>
+                <strong id="pageTitle">Customer Directory</strong>
+                <small>Customer Profile's, Records and Informations</small>
+            </div>
+
+            <div class="header-right">
+
+                <div class="search-box">
+                    <input type="search" id="globalSearch"
+                        placeholder="Search here ...">
+                    <button Ctype="button" id="searchBtn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <div class="datetime">
+                    <strong id="currentTime">00:00:00</strong>
+                    <span id="currentDate">MM / DD / YYYY</span>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    ☰
+                </button>
+
+            </div>
+
+        </header>
+<!-- END OF TOP BAR -->
+
+
+<!-- MAIN CONTENT AREA -->
+    <main class="main-area">
+
+<!-- CUSTOMER PROFILE MAIN CONTENT -->
+    <section class="customer-content" id="customerContent"  >
+                <div class="welcome-header">
+                    <div>
+                        <h2>CUSTOMER <span> PROFILES</span></h2>
+                    </div>
+
+                    <button type=button class="create-btn" id="openProfileModal">
+                        + Create New Profile
+                    </button>
+                </div>
+
+<!-- CUSTOMER RECORDS MAIN -->
+<!-- CUSTOMER DIRECTORY -->
+        <section class="directory-container"  >
+
+            <!-- DIRECTORY HEADER -->
+            <div class="directory-header">
+
+                <!-- <h3>Customer Directory</h3> -->
+
+                <div class="directory-controls">
+
+                    <div class="search-box">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search here ..."
+                            onkeyup="filterCustomers()"
+                        >
+
+                        <button onclick="filterCustomers()">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+
+
+                    <p> Customer </p>
+                    <select class="filter-select" id="customerFilter" onchange="filterCustomers()" >
+                       <option value="allCust">All</option>
+                        <option value="withTicket">With Ticket</option>
+                        <option value="noTicket">No Ticket</option>
+                        <option value="withApplication">With Application</option>
+                        <option value="noApplication">No Application</option>
+                    </select>
+
+                    <p> Assigned To: </p>
+
+                    <select class="filter-select" id="empAssignedFilter" onchange="filterEmpAssigned()" >
+                       <option value="allEmp">All</option>
+                        <option value="myTicket">My Self</option>
+                        <option value="empTicket">Employee</option>
+                    </select>
+
+                </div>
+
+            
+
+            <!-- CUSTOMER SUMMARY -->
+                <div class="customer-summary">
+
+                    <span class="summary-label">
+                        Total Number of Customer Profile
+                    </span>
+
+                    <span class="summary-count" id="customerCount">
+                        0
+                    </span>
+
+                    <span class="summary-text">
+                        Profiles
+                    </span>
+
+                </div>
+
+
+            <!-- CUSTOMER TABLE -->
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>ID No.</th>
+                                <th>Date Created</th>
+                                <th>Full Name</th>
+                                <th>Address</th>
+                                <th>Contact No.</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customerTable">
+
+                            <tr>
+                                <td colspan="10" class="empty-message">
+                                    No Customer Records Found.
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+            </section>
+    </section>
+<!-- END OF CUSTOMER RECORDS MAIN -->
+
+<!-- Customer Specific Profile Selected Mode-->
+    <section class="custProfile-container" Hidden >
+
+    <div class="customer-layout" >
+
+        <!-- ==================================
+             LEFT SIDE: CUSTOMER INFORMATION
+        =================================== -->
+
+        <section class="customer-information" >
+
+            <!-- CUSTOMER NAME -->
+            <div class="customer-heading">
+
+                <h2 id="customerName">Customer Name</h2>
+
+                <div class="customer-meta">
+
+                    <span>
+                        <strong>Customer ID:</strong>
+                        <span id="displayCustomerID">TGM-0001</span>
+                    </span>
+
+                    <span>
+                        <strong>Date Created:</strong>
+                        <span id="displayDateCreated">--</span>
+                    </span>
+                </div>
+                <div class="profile-actions">
+
+                        <button class="edit-btn" id="editButton" onclick="enableEdit()">
+                            Edit Profile
+                        </button>
+                    </div>
+
+
+            </div>
+
+
+            <!-- EDIT PROFILE -->
+            
+
+            <!-- CUSTOMER BASIC INFORMATION -->
+            <section class="info-section">
+
+                <div class="section-header">
+                    <h3>Profile Information</h3>
+                </div>
+
+                <div class="section-body">
+
+                    <div class="form-grid">
+
+                        <!-- SYSTEM INFORMATION -->
+                        <div class="form-group">
+                            <label>Customer ID</label>
+                            <input type="text" id="customerID"
+                                value="TGM-0001" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date Created</label>
+                            <input type="text" id="dateCreated"
+                                value="" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Created By</label>
+                            <input type="text" id="createdBy"
+                                value="Administrator" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Assigned To</label>
+                            <input type="text" id="assignedTo"
+                                value="Not Assigned" disabled>
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <div class="section-header">
+                        <h3>PERSONAL DETAILS</h3>
+                    </div>
+                    <br>
+
+                    
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" id="lastName"
+                                placeholder="Enter last name" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" id="firstName"
+                                placeholder="Enter first name" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Middle Name</label>
+                            <input type="text" id="middleName"
+                                placeholder="Enter middle name" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Suffix</label>
+                            <select id="suffix" disabled>
+                                <option value="">None</option>
+                                <option>Jr.</option>
+                                <option>Sr.</option>
+                                <option>II</option>
+                                <option>III</option>
+                                <option>IV</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select id="gender" disabled>
+                                <option value="">Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>FB Account Link</label>
+                            <input type="url" id="fbLink"
+                                placeholder="https://facebook.com/username"
+                                disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contact Number *</label>
+                            <input type="tel" id="contactNumber"
+                                placeholder="09XXXXXXXXX" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Civil Status</label>
+                            <select id="civilStatus" disabled>
+                                <option value="">Select Civil Status</option>
+                                <option>Single</option>
+                                <option>Married</option>
+                                <option>Widowed</option>
+                                <option>Separated</option>
+                                <option>Divorced</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Birthday</label>
+                            <input type="date" id="birthday"
+                                onchange="calculateAge()" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input type="number" id="age"
+                                placeholder="Auto calculated"
+                                disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Birth Place</label>
+                            <input type="text" id="birthPlace"
+                                placeholder="Enter birth place" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Religion</label>
+                            <input type="text" id="religion"
+                                placeholder="Enter religion" disabled>
+                        </div>
+
+                        <div class="form-group full">
+                            <label>Email Address</label>
+                            <input type="email" id="email"
+                                placeholder="example@email.com" disabled>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- CUSTOMER ADDRESS -->
+            <section class="info-section">
+
+                <div class="section-header">
+                    <h3>Customer Address</h3>
+                </div>
+
+                <div class="section-body">
+
+                    <!-- RESIDENTIAL STATUS -->
+                    <div class="form-group">
+                        <label>Residential Status *</label>
+
+                        <select id="residentialStatus"
+                            onchange="togglePresentAddress()"
+                            disabled>
+
+                            <option value="">Select Residential Status</option>
+                            <option value="Owned">Owned</option>
+                            <option value="Rented">Rented</option>
+                            <option value="Living with Parents">Living with Parents</option>
+                            <option value="Living with Relatives">Living with Relatives</option>
+                            <option value="Other">Other</option>
+
+                        </select>
+                    </div>
+
+
+                    <!-- PERMANENT ADDRESS -->
+                    <div class="address-block">
+
+                        <div class="subsection-title">
+                            PERMANENT ADDRESS
+                        </div>
+
+                        <div class="form-grid">
+
+                            <div class="form-group full">
+                                <label>Home Number / Lot / Unit / Floor</label>
+                                <input type="text" id="permanentHome"
+                                    placeholder="Enter house / unit number"
+                                    disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Street</label>
+                                <input type="text" id="permanentStreet"
+                                    placeholder="Enter street" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Barangay</label>
+                                <input type="text" id="permanentBarangay"
+                                    placeholder="Enter barangay" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>City / Municipality</label>
+                                <input type="text" id="permanentCity"
+                                    placeholder="Enter city" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Province</label>
+                                <input type="text" id="permanentProvince"
+                                    placeholder="Enter province" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Length of Stay</label>
+                                <input type="text" id="permanentStay"
+                                    placeholder="e.g. 5 years" disabled>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PRESENT ADDRESS -->
+                    <div class="address-block" id="presentAddressSection">
+
+                        <div class="subsection-title">
+                            PRESENT ADDRESS
+                        </div>
+
+                        <div class="form-grid">
+
+                            <div class="form-group full">
+                                <label>Home Number / Lot / Unit / Floor</label>
+                                <input type="text" id="presentHome"
+                                    placeholder="Enter house / unit number"
+                                    disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Street</label>
+                                <input type="text" id="presentStreet"
+                                    placeholder="Enter street" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Barangay</label>
+                                <input type="text" id="presentBarangay"
+                                    placeholder="Enter barangay" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>City / Municipality</label>
+                                <input type="text" id="presentCity"
+                                    placeholder="Enter city" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Province</label>
+                                <input type="text" id="presentProvince"
+                                    placeholder="Enter province" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Length of Stay</label>
+                                <input type="text" id="presentStay"
+                                    placeholder="e.g. 2 years" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Monthly Rent / Mortgage (₱)</label>
+                                <input type="number" id="monthlyRent"
+                                    placeholder="Enter monthly amount"
+                                    min="0" disabled>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SAVE / CANCEL -->
+            <div class="edit-actions" id="editActions">
+
+                <button class="cancel-btn" onclick="cancelEdit()">
+                    Cancel
+                </button>
+
+                <button class="save-btn" onclick="saveProfile()">
+                    Save Changes
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================================
+             RIGHT SIDE: RECENT ACTIVITIES
+        =================================== -->
+
+        <aside class="customer-sidebar">
+
+
+            <!-- RECENT TICKETS -->
+            <section class="sidebar-card">
+
+                <div class="sidebar-header">
+
+                    <h3>Recent Ticket</h3>
+
+                    <button class="view-all"
+                        onclick="viewAllTickets()">
+                        View All
+                    </button>
+
+                </div>
+
+                <div class="sidebar-body" id="recentTickets">
+
+                    <div class="sidebar-empty">
+                        Show 3 Recent Ticket Created
+                    </div>
+
+                </div>
+
+                <div class="ticket-create">
+
+                    <button class="ticket-btn"
+                        onclick="createTicket()">
+                        + Create Ticket
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- RECENT APPLICATIONS -->
+            <section class="sidebar-card">
+
+                <div class="sidebar-header">
+
+                    <h3>Recent Application</h3>
+
+                    <button class="view-all"
+                        onclick="viewAllApplications()">
+                        View All
+                    </button>
+
+                </div>
+
+                <div class="sidebar-body" id="recentApplications">
+
+                    <div class="sidebar-empty">
+                        Show 3 Recent Application with Status
+                    </div>
+                </div>
+             </section>
+            </aside>
+        </div>
+    </section>
+<!-- End of Customer Specific Profile Mode Selected -->
+
+<!-- Customer Profile Tickect Mode -->
+  <section class="custTicket-information" hidden >
+        
+        <!-- <header class="page-header">
+        <div class="page-title">
+        <h2>Customer's Profile</h2>
+        <p>View applicant records</p>
+        </div>
+        <button class="create-profile-btn" id="openProfileModal">
+                    + Create New Profile
+                </button>
+        </header> -->
+        <!-- =================================
+                 MAIN TICKET LAYOUT
+            ================================== -->
+        <div class="ticket-layout">
+        <!-- =================================
+                     LEFT CONTENT
+                ================================== -->
+        <section class="left-content">
+        <!-- CUSTOMER HEADER -->
+        <div class="customer-header">
+        <div class="customer-details">
+        <h2 id="customerName">
+                                Customer Name
+                            </h2>
+        <p>
+        <strong>Customer ID:</strong>
+        <span id="customerID">TGM-0001</span>
+
+                                  
+
+                                <strong>Date Created:</strong>
+        <span id="dateCreated">--</span>
+        </p>
+        </div>
+        <button class="view-profile-btn" onclick="viewProfile()">
+                            View Profile
+                        </button>
+        </div>
+        <!-- ==========================================
+             TICKET INFORMATION
+        ========================================== -->
+        <section class="content-section ticket-section">
+        <h3 class="section-title">Ticket Information</h3>
+        <div class="ticket-form-content">
+        <!-- TICKET DETAILS -->
+        <details class="form-subsection collapsible-group" open="open"><summary><span class="group-title">Ticket Details</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group">
+        <label>Ticket Number</label>
+        <input disabled="" id="ticketNumber" type="text" value="TKT-0001"/>
+        </div>
+        <div class="form-group">
+        <label>Ticket Status</label>
+        <select id="ticketStatus">
+        <option value="">Select Status</option>
+        <option>Pending</option>
+        <option>Ongoing</option>
+        <option>For Review</option>
+        <option>Completed</option>
+        <option>Cancelled</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Date Created</label>
+        <input disabled="" id="ticketDateCreated" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Created By</label>
+        <input disabled="" id="ticketCreatedBy" type="text" value="Administrator"/>
+        </div>
+        <div class="form-group">
+        <label>Assigned To</label>
+        <select id="ticketAssignedTo">
+        <option value="">Select Employee</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Customer Name</label>
+        <input id="ticketCustomerName" placeholder="Customer Name" type="text"/>
+        </div>
+        </div>
+        </details>
+        <!-- CUSTOMER ADDRESS -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Customer Address</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Residential Status</label>
+        <select id="ticketResidentialStatus" onchange="toggleTicketPresentAddress()">
+        <option value="">Select Residential Status</option>
+        <option>Owned</option>
+        <option>Rented</option>
+        <option>Living with Parents</option>
+        <option>Living with Relatives</option>
+        <option>Other</option>
+        </select>
+        </div>
+        </div>
+        <h5 class="subsection-label">PERMANENT ADDRESS</h5>
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Home Number / Lot / Unit / Floor</label>
+        <input placeholder="Enter home number / lot / unit / floor" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Street</label>
+        <input placeholder="Street" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Barangay</label>
+        <input placeholder="Barangay" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>City</label>
+        <input placeholder="City / Municipality" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Province</label>
+        <input placeholder="Province" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Length of Stay</label>
+        <input placeholder="e.g. 5 years" type="text"/>
+        </div>
+        </div>
+        <div id="ticketPresentAddress">
+        <h5 class="subsection-label">PRESENT ADDRESS</h5>
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Home Number / Lot / Unit / Floor</label>
+        <input placeholder="Enter home number / lot / unit / floor" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Street</label>
+        <input placeholder="Street" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Barangay</label>
+        <input placeholder="Barangay" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>City</label>
+        <input placeholder="City / Municipality" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Province</label>
+        <input placeholder="Province" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Length of Stay</label>
+        <input placeholder="e.g. 2 years" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Monthly Rent / Mortgage</label>
+        <input min="0" placeholder="₱ 0.00" type="number"/>
+        </div>
+        </div>
+        </div>
+        </details>
+        <!-- CUSTOMER FAMILY BACKGROUND -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Family Background Information</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Marriage Status</label>
+        <select>
+        <option value="">Select Marriage Status</option>
+        <option>Married</option>
+        <option>Single</option>
+        <option>Widowed</option>
+        <option>Separated</option>
+        <option>Divorced</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Father's Name</label>
+        <input placeholder="Father's Full Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Father's Status</label>
+        <select>
+        <option value="">Select Status</option>
+        <option>Living</option>
+        <option>Deceased</option>
+        </select>
+        </div>
+        <div class="form-group full">
+        <label>Father's Address</label>
+        <input placeholder="Father's Address" type="text"/>
+        </div>
+        <div class="form-group full">
+        <label>Father's Occupation</label>
+        <input placeholder="Father's Occupation" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Mother's Name</label>
+        <input placeholder="Mother's Full Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Mother's Status</label>
+        <select>
+        <option value="">Select Status</option>
+        <option>Living</option>
+        <option>Deceased</option>
+        </select>
+        </div>
+        <div class="form-group full">
+        <label>Mother's Address</label>
+        <input placeholder="Mother's Address" type="text"/>
+        </div>
+        <div class="form-group full">
+        <label>Mother's Occupation</label>
+        <input placeholder="Mother's Occupation" type="text"/>
+        </div>
+        </div>
+        </details>
+        <!-- APPLICANT SOURCE OF INCOME -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Applicant Source of Income</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Source of Fund</label>
+        <select>
+        <option value="">Select Source of Fund</option>
+        <option>Employment</option>
+        <option>Business</option>
+        <option>Self-Employed</option>
+        <option>Remittance</option>
+        <option>Pension</option>
+        <option>Other</option>
+        </select>
+        </div>
+        </div>
+        <h5 class="subsection-label">OFFICE ADDRESS</h5>
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Home Number / Lot / Unit / Floor</label>
+        <input placeholder="Office Number / Unit" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Street</label>
+        <input placeholder="Street" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Barangay</label>
+        <input placeholder="Barangay" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>City</label>
+        <input placeholder="City" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Province</label>
+        <input placeholder="Province" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Tel Number / Contact Number</label>
+        <input placeholder="Contact Number" type="tel"/>
+        </div>
+        <div class="form-group">
+        <label>Nature of Work</label>
+        <input placeholder="Nature of Work" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Present Position</label>
+        <input placeholder="Present Position" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Length of Stay</label>
+        <input placeholder="e.g. 3 years" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Monthly Total</label>
+        <input min="0" placeholder="₱ 0.00" type="number"/>
+        </div>
+        <div class="form-group">
+        <label>Monthly Expenses</label>
+        <input min="0" placeholder="₱ 0.00" type="number"/>
+        </div>
+        </div>
+        </details>
+        <!-- SPOUSE INFORMATION -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Spouse Information</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group">
+        <label>Last Name</label>
+        <input placeholder="Last Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>First Name</label>
+        <input placeholder="First Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Middle Name</label>
+        <input placeholder="Middle Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Suffix</label>
+        <select>
+        <option value="">None</option>
+        <option>Jr.</option>
+        <option>Sr.</option>
+        <option>II</option>
+        <option>III</option>
+        <option>IV</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Birthday</label>
+        <input id="spouseBirthday" oninput="computeTicketAge('spouseBirthday','spouseAge')" type="date"/>
+        </div>
+        <div class="form-group">
+        <label>Birth Place</label>
+        <input placeholder="Birth Place" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Age (Auto Compute)</label>
+        <input disabled="" id="spouseAge" placeholder="Auto calculated" type="number"/>
+        </div>
+        <div class="form-group">
+        <label>Contact Number</label>
+        <input placeholder="Contact Number" type="tel"/>
+        </div>
+        <div class="form-group full">
+        <label>Address</label>
+        <textarea placeholder="Spouse Address"></textarea>
+        </div>
+        </div>
+        </details>
+        <!-- SPOUSE FAMILY BACKGROUND -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Spouse Family Background Information</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Marriage Status</label>
+        <select>
+        <option value="">Select Marriage Status</option>
+        <option>Married</option>
+        <option>Single</option>
+        <option>Widowed</option>
+        <option>Separated</option>
+        <option>Divorced</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Father's Name</label>
+        <input placeholder="Father's Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Father's Status</label>
+        <select>
+        <option value="">Select Status</option>
+        <option>Living</option>
+        <option>Deceased</option>
+        </select>
+        </div>
+        <div class="form-group full">
+        <label>Father's Address</label>
+        <input placeholder="Father's Address" type="text"/>
+        </div>
+        <div class="form-group full">
+        <label>Father's Occupation</label>
+        <input placeholder="Father's Occupation" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Mother's Name</label>
+        <input placeholder="Mother's Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Mother's Status</label>
+        <select>
+        <option value="">Select Status</option>
+        <option>Living</option>
+        <option>Deceased</option>
+        </select>
+        </div>
+        <div class="form-group full">
+        <label>Mother's Address</label>
+        <input placeholder="Mother's Address" type="text"/>
+        </div>
+        <div class="form-group full">
+        <label>Mother's Occupation</label>
+        <input placeholder="Mother's Occupation" type="text"/>
+        </div>
+        </div>
+        </details>
+        <!-- SPOUSE SOURCE OF INCOME -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Spouse Source of Income</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Source of Fund</label>
+        <select>
+        <option value="">Select Source of Fund</option>
+        <option>Employment</option>
+        <option>Business</option>
+        <option>Self-Employed</option>
+        <option>Remittance</option>
+        <option>Pension</option>
+        <option>Other</option>
+        </select>
+        </div>
+        </div>
+        <h5 class="subsection-label">OFFICE ADDRESS</h5>
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Home Number / Lot / Unit / Floor</label>
+        <input placeholder="Office Number / Unit" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Street</label>
+        <input placeholder="Street" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Barangay</label>
+        <input placeholder="Barangay" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>City</label>
+        <input placeholder="City" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Province</label>
+        <input placeholder="Province" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Tel Number / Contact Number</label>
+        <input placeholder="Contact Number" type="tel"/>
+        </div>
+        <div class="form-group">
+        <label>Nature of Work</label>
+        <input placeholder="Nature of Work" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Present Position</label>
+        <input placeholder="Present Position" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Length of Stay</label>
+        <input placeholder="e.g. 3 years" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Monthly Total</label>
+        <input min="0" placeholder="₱ 0.00" type="number"/>
+        </div>
+        </div>
+        </details>
+        <!-- DEPENDENTS -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Dependents</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group">
+        <label>First Dependent - Name</label>
+        <input placeholder="First Dependent" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>First Dependent - Age</label>
+        <input min="0" placeholder="Age" type="number"/>
+        </div>
+        <div class="form-group full">
+        <label>First Dependent - Name of School / Work</label>
+        <input placeholder="School / Work" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Second Dependent - Name</label>
+        <input placeholder="Second Dependent" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Second Dependent - Age</label>
+        <input min="0" placeholder="Age" type="number"/>
+        </div>
+        <div class="form-group full">
+        <label>Second Dependent - Name of School / Work</label>
+        <input placeholder="School / Work" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Third Dependent - Name</label>
+        <input placeholder="Third Dependent" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Third Dependent - Age</label>
+        <input min="0" placeholder="Age" type="number"/>
+        </div>
+        <div class="form-group full">
+        <label>Third Dependent - Name of School / Work</label>
+        <input placeholder="School / Work" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Fourth Dependent - Name</label>
+        <input placeholder="Fourth Dependent" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Fourth Dependent - Age</label>
+        <input min="0" placeholder="Age" type="number"/>
+        </div>
+        <div class="form-group full">
+        <label>Fourth Dependent - Name of School / Work</label>
+        <input placeholder="School / Work" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Fifth Dependent - Name</label>
+        <input placeholder="Fifth Dependent" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Fifth Dependent - Age</label>
+        <input min="0" placeholder="Age" type="number"/>
+        </div>
+        <div class="form-group full">
+        <label>Fifth Dependent - Name of School / Work</label>
+        <input placeholder="School / Work" type="text"/>
+        </div>
+        </div>
+        </details>
+        <!-- CO-BORROWER INFORMATION -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Co-Borrower / Co-Maker Information (Third Form)</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group">
+        <label>Last Name</label>
+        <input placeholder="Last Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>First Name</label>
+        <input placeholder="First Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Middle Name</label>
+        <input placeholder="Middle Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Suffix</label>
+        <select>
+        <option value="">None</option>
+        <option>Jr.</option>
+        <option>Sr.</option>
+        <option>II</option>
+        <option>III</option>
+        <option>IV</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Birthday</label>
+        <input id="coBorrowerBirthday" oninput="computeTicketAge('coBorrowerBirthday','coBorrowerAge')" type="date"/>
+        </div>
+        <div class="form-group">
+        <label>Birth Place</label>
+        <input placeholder="Birth Place" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Age (Auto Compute)</label>
+        <input disabled="" id="coBorrowerAge" placeholder="Auto calculated" type="number"/>
+        </div>
+        <div class="form-group">
+        <label>Contact Number</label>
+        <input placeholder="Contact Number" type="tel"/>
+        </div>
+        <div class="form-group full">
+        <label>Address</label>
+        <textarea placeholder="Co-Borrower / Co-Maker Address"></textarea>
+        </div>
+        </div>
+        </details>
+        <!-- CO-BORROWER SOURCE OF INCOME -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Co-Borrower / Co-Maker Source of Income</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Source of Fund</label>
+        <select>
+        <option value="">Select Source of Fund</option>
+        <option>Employment</option>
+        <option>Business</option>
+        <option>Self-Employed</option>
+        <option>Remittance</option>
+        <option>Pension</option>
+        <option>Other</option>
+        </select>
+        </div>
+        </div>
+        <h5 class="subsection-label">OFFICE ADDRESS</h5>
+        <div class="form-grid">
+        <div class="form-group full">
+        <label>Home Number / Lot / Unit / Floor</label>
+        <input placeholder="Office Number / Unit" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Street</label>
+        <input placeholder="Street" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Barangay</label>
+        <input placeholder="Barangay" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>City</label>
+        <input placeholder="City" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Province</label>
+        <input placeholder="Province" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Tel Number / Contact Number</label>
+        <input placeholder="Contact Number" type="tel"/>
+        </div>
+        <div class="form-group">
+        <label>Nature of Work</label>
+        <input placeholder="Nature of Work" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Present Position</label>
+        <input placeholder="Present Position" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Length of Stay</label>
+        <input placeholder="e.g. 3 years" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Monthly Total</label>
+        <input min="0" placeholder="₱ 0.00" type="number"/>
+        </div>
+        </div>
+        </details>
+        <!-- CHARACTER REFERENCES -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Character References</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="reference-block">
+        <h5 class="subsection-label">FIRST CHARACTER REFERENCE</h5>
+        <div class="form-grid">
+        <div class="form-group">
+        <label>Name</label>
+        <input placeholder="Full Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Relationship</label>
+        <input placeholder="Relationship" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Contact Number</label>
+        <input placeholder="Contact Number" type="tel"/>
+        </div>
+        <div class="form-group">
+        <label>Address</label>
+        <input placeholder="Address" type="text"/>
+        </div>
+        </div>
+        </div>
+        <div class="reference-block">
+        <h5 class="subsection-label">SECOND CHARACTER REFERENCE</h5>
+        <div class="form-grid">
+        <div class="form-group">
+        <label>Name</label>
+        <input placeholder="Full Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Relationship</label>
+        <input placeholder="Relationship" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Contact Number</label>
+        <input placeholder="Contact Number" type="tel"/>
+        </div>
+        <div class="form-group">
+        <label>Address</label>
+        <input placeholder="Address" type="text"/>
+        </div>
+        </div>
+        </div>
+        <div class="reference-block">
+        <h5 class="subsection-label">THIRD CHARACTER REFERENCE</h5>
+        <div class="form-grid">
+        <div class="form-group">
+        <label>Name</label>
+        <input placeholder="Full Name" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Relationship</label>
+        <input placeholder="Relationship" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Contact Number</label>
+        <input placeholder="Contact Number" type="tel"/>
+        </div>
+        <div class="form-group">
+        <label>Address</label>
+        <input placeholder="Address" type="text"/>
+        </div>
+        </div>
+        </div>
+        </details>
+        <!-- MOTORCYCLE INFORMATION -->
+        <details class="form-subsection collapsible-group"><summary><span class="group-title">Motorcycle Information</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group">
+        <label>Motorcycle Brand</label>
+        <input placeholder="Motorcycle Brand" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Model</label>
+        <input placeholder="Motorcycle Model" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Color</label>
+        <input placeholder="Motorcycle Color" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Brand New / Repossessed</label>
+        <select>
+        <option value="">Select Condition</option>
+        <option>Brand New</option>
+        <option>Repossessed</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Terms of Payment</label>
+        <select>
+        <option value="">Select Terms</option>
+        <option>Cash</option>
+        <option>Installment</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Down Payment (₱)</label>
+        <input min="0" placeholder="Enter Down Payment" type="number"/>
+        </div>
+        </div>
+        </details>
+        <!-- TICKET SAVE BUTTONS -->
+        <div class="form-footer">
+        <button class="update-form-btn" onclick="updateTicketForm()" type="button">
+                    Update
+                </button>
+        <button class="cancel-form-btn" onclick="cancelTicketForm()" type="button">
+                        Cancel
+                    </button>
+        <button class="save-form-btn" onclick="saveTicketForm()" type="button">
+                        Save Ticket Information
+                    </button>
+        </div>
+        </div>
+        </section>
+        <!-- ==========================================
+             APPLICATION INFORMATION
+        ========================================== -->
+        <section class="content-section application-section">
+        <h3 class="section-title">Application Information</h3>
+        <div class="ticket-form-content">
+        <details class="form-subsection collapsible-group" open="open"><summary><span class="group-title">Application Details</span><span class="group-toggle-hint"></span></summary>
+
+        <div class="form-grid">
+        <div class="form-group">
+        <label>Application ID</label>
+        <input disabled="" id="applicationID" type="text" value="APP-0001"/>
+        </div>
+        <div class="form-group">
+        <label>Date Submitted</label>
+        <input disabled="" id="dateSubmitted" placeholder="Automatically generated" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Created By</label>
+        <input disabled="" id="applicationCreatedBy" type="text" value="Administrator"/>
+        </div>
+        <div class="form-group">
+        <label>Ticket Number</label>
+        <input disabled="" id="applicationTicketNumber" type="text" value="TKT-0001"/>
+        </div>
+        <div class="form-group">
+        <label>Branch ID</label>
+        <input disabled="" id="branchID" placeholder="Branch ID" type="text"/>
+        </div>
+        <div class="form-group">
+        <label>Branch</label>
+        <select id="applicationBranch">
+        <option value="">Select Branch</option>
+        <option>Taguig</option>
+        <option>Quezon City</option>
+        <option>Manila</option>
+        <option>Makati</option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Application Status</label>
+        <select id="applicationStatus">
+        <option value="">Select Application Status</option>
+        <option>Pending</option>
+        <option>Under Review</option>
+        <option>Approved</option>
+        <option>Rejected</option>
+        <option>Cancelled</option>
+        </select>
+        </div>
+        <div class="form-group full">
+        <label>Remarks</label>
+        <textarea id="applicationRemarks" placeholder="Enter application remarks..."></textarea>
+        </div>
+        </div>
+        </details>
+        <div class="form-footer">
+        <button class="update-form-btn" onclick="updateTicketForm()" type="button">
+                Update
+            </button>
+        <button class="cancel-form-btn" onclick="cancelApplicationForm()" type="button">
+                        Cancel
+                    </button>
+        <button class="save-form-btn" onclick="saveApplicationForm()" type="button">
+                        Save Application Information
+                    </button>
+        </div>
+        </div>
+        </section>
+        <!-- =================================
+                     RIGHT SIDEBAR
+                ================================== -->
+        <aside class="right-content">
+        <!-- =================================
+                         CUSTOMER'S TICKET
+                    ================================== -->
+        <section class="sidebar-section">
+        <div class="sidebar-header">
+        <h3>Customer's Ticket</h3>
+        <button class="view-all-btn" onclick="viewAllTickets()">
+                                View All
+                            </button>
+        </div>
+        <!-- DATE FILTER -->
+        <div class="date-filter">
+        <label for="dateFrom">From:</label>
+        <input id="dateFrom" type="date"/>
+        <label for="dateTo">To:</label>
+        <input id="dateTo" type="date"/>
+        </div>
+        <!-- TICKET LIST -->
+        <div class="ticket-list" id="recentTicketList">
+        <div class="ticket-list-empty">
+                                Show All Ticket Created
+                            </div>
+        </div>
+        <!-- CREATE TICKET -->
+        <div class="create-ticket-container">
+        <button class="create-ticket-btn" onclick="createTicket()">
+                                + Create Ticket
+                            </button>
+        </div>
+        </section>
+        <!-- =================================
+                         NOTES
+                    ================================== -->
+        <section class="sidebar-section notes-section">
+        <div class="sidebar-header">
+        <h3>Note's</h3>
+        <button class="view-all-btn" onclick="viewAllNotes()">
+                                View All
+                            </button>
+        </div>
+        <div class="notes-body">
+        <!-- NOTES LIST -->
+        <div class="notes-list" id="notesList">
+        <div class="notes-empty">
+                                    Will show all note created on these tickets
+                                </div>
+        </div>
+        <!-- INSERT NOTES -->
+        <textarea class="notes-input" id="noteInput" placeholder="Insert your notes here">
+                            </textarea>
+        <!-- SUBMIT -->
+        <div class="submit-note-container">
+        <button class="submit-note-btn" onclick="submitNote()">
+                                    Submit
+                                </button>
+        </div>
+        </div>
+        </section>
+        </aside>
+        </section></div>
+    </section>    
+<!-- End of Customer Profile Tickect Mod -->
+
+<!-- Customer Profile Application Mode -->
+    <section class="custApplication-information" Hidden >        
+        <div class="page">
+
+    <div class="content-layout">
+
+        <!-- LEFT: MAIN APPLICATION CONTENT -->
+        <main class="main-column">
+
+            <!-- CUSTOMER HEADER -->
+            <section class="customer-card">
+                <div>
+                    <div class="customer-name" id="customerName">Customer Name</div>
+                    <div class="customer-meta">
+                        <span>Customer ID: <strong id="customerId">TGM-0001</strong></span>
+                        <span>Date Created: <strong id="customerDateCreated">--</strong></span>
+                    </div>
+                </div>
+
+                <button type="button" class="outline-btn"
+                        onclick="alert('Connect this button to the customer profile page.')">
+                    View Profile
+                </button>
+            </section>
+
+            <!-- APPLICATION INFORMATION FORM -->
+            <section class="form-panel">
+                <div class="form-panel-heading">Application Information</div>
+
+                <div class="form-panel-body">
+
+                    <!-- APPLICATION INFO -->
+                    <details class="form-group-section" open>
+                        <summary>Application Info</summary>
+                        <div class="group-content">
+                            <p class="group-description">
+                                Application details and current processing status.
+                            </p>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="applicationId">Application ID</label>
+                                    <input type="text" id="applicationId"
+                                           value="APP-0001" disabled>
+                                    <span class="locked-note">System generated · Not editable</span>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="dateSubmitted">Date Submitted</label>
+                                    <input type="text" id="dateSubmitted"
+                                           value="--" disabled>
+                                    <span class="locked-note">System generated · Not editable</span>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="createdBy">Created By</label>
+                                    <input type="text" id="createdBy"
+                                           value="Administrator" disabled>
+                                    <span class="locked-note">System generated · Not editable</span>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="ticketNumber">Ticket Number</label>
+                                    <input type="text" id="ticketNumber"
+                                           value="TKT-0001" disabled>
+                                    <span class="locked-note">System generated · Not editable</span>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="applicationStatus">Application Status</label>
+                                    <select id="applicationStatus" name="applicationStatus">
+                                        <option value="">Select Application Status</option>
+                                        <option>Pending</option>
+                                        <option>Under Review</option>
+                                        <option>For Approval</option>
+                                        <option>Approved</option>
+                                        <option>Rejected</option>
+                                        <option>Cancelled</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field full-width">
+                                    <label for="remarks">Remarks</label>
+                                    <textarea id="remarks" name="remarks"
+                                              placeholder="Enter application remarks..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- BRANCH INFORMATION -->
+                    <details class="form-group-section">
+                        <summary>Branch Info</summary>
+                        <div class="group-content">
+                            <p class="group-description">
+                                Branch assigned to this application and commission details.
+                            </p>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="branchId">Branch ID</label>
+                                    <input type="text" id="branchId"
+                                           value="BR-0001" disabled>
+                                    <span class="locked-note">System generated · Not editable</span>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="branch">Branch</label>
+                                    <select id="branch" name="branch">
+                                        <option value="">Select Branch</option>
+                                        <option>Taguig</option>
+                                        <option>Quezon City</option>
+                                        <option>Manila</option>
+                                        <option>Makati</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="branchLocation">Location</label>
+                                    <input type="text" id="branchLocation"
+                                           name="branchLocation"
+                                           placeholder="Enter branch location">
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="commission">Commission</label>
+                                    <input type="number" id="commission"
+                                           name="commission" min="0" step="0.01"
+                                           placeholder="Enter commission amount">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- CONTACT PERSON -->
+                    <details class="form-group-section">
+                        <summary>Contact Person</summary>
+                        <div class="group-content">
+                            <p class="group-description">
+                                Contact details of the person handling or representing the branch.
+                            </p>
+
+                            <div class="form-grid">
+                                <div class="form-field">
+                                    <label for="contactPersonName">Name</label>
+                                    <input type="text" id="contactPersonName"
+                                           name="contactPersonName"
+                                           placeholder="Enter contact person's name">
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactPersonPosition">Position</label>
+                                    <input type="text" id="contactPersonPosition"
+                                           name="contactPersonPosition"
+                                           placeholder="Enter position">
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactPersonNumber">Contact Number</label>
+                                    <input type="tel" id="contactPersonNumber"
+                                           name="contactPersonNumber"
+                                           placeholder="09XXXXXXXXX">
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="contactPersonEmail">Email</label>
+                                    <input type="email" id="contactPersonEmail"
+                                           name="contactPersonEmail"
+                                           placeholder="example@email.com">
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <!-- FORM ACTIONS -->
+                    <div class="form-actions">
+                        <button type="button" class="secondary-btn"
+                                onclick="handleApplicationUpdate()">
+                            Update
+                        </button>
+
+                        <div class="form-actions-right">
+                            <button type="button" class="primary-btn"
+                                    onclick="handleResubmit()">
+                                Re-submit
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+
+        <!-- RIGHT: FIXED OTHER APPLICATIONS AND LOGS -->
+        <aside class="right-sidebar">
+
+            <!-- OTHER APPLICATIONS -->
+            <section class="side-card">
+                <div class="side-card-header">
+                    <h2>Other Application</h2>
+                    <button type="button" class="view-all-btn"
+                            onclick="showAllApplications()">
+                        View All
+                    </button>
+                </div>
+
+                <div class="date-filter">
+                    <div>
+                        <label for="applicationFrom">From</label>
+                        <input type="date" id="applicationFrom">
+                    </div>
+                    <div>
+                        <label for="applicationTo">To</label>
+                        <input type="date" id="applicationTo">
+                    </div>
+                </div>
+
+                <div class="side-card-content" id="otherApplicationsList">
+                    <div class="empty-state">
+                        <div class="empty-icon">▤</div>
+                        <strong>Show all applications</strong>
+                        <span>Other applications associated with this customer will appear here.</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- APPLICATION LOGS -->
+            <section class="side-card">
+                <div class="side-card-header">
+                    <h2>Application Log's</h2>
+                    <button type="button" class="view-all-btn"
+                            onclick="showAllApplicationLogs()">
+                        View All
+                    </button>
+                </div>
+
+                <div class="side-card-content" id="applicationLogsList">
+                    <div class="empty-state">
+                        <div class="empty-icon">◷</div>
+                        <strong>Application History</strong>
+                        <span>Applications rejected by other branches and their status history will appear here.</span>
+                    </div>
+                </div>
+            </section>
+
+        </aside>
+
+    </div>
+    </div>
+    </section>
+<!-- End of Customer Profile Application Mode -->
+
+<!-- Create Customer Profile -->
+    <!--
+      IMPORTANT:
+      The modal closes ONLY through the X button or the Close button.
+      Clicking the dark backdrop and pressing Escape do not close it.
+    -->
+    <div class="modal-overlay" id="profileModalOverlay"
+         aria-hidden="true">
+        <section class="profile-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="modalTitle">
+
+            <header class="modal-header">
+                <div>
+                    <h2 id="modalTitle">Create New Customer Profile</h2>
+                    <p>Enter the customer's personal and address information.</p>
+                </div>
+                <button type="button" class="modal-close"
+                        id="closeProfileX"
+                        aria-label="Close profile form"
+                        title="Close">&times;</button>
+            </header>
+
+            <form id="createProfileForm" novalidate>
+                <div class="modal-body">
+                    <div id="formMessage" class="form-message"
+                         role="status" aria-live="polite"></div>
+
+                    <!-- PROFILE INFORMATION -->
+                    <section class="section" hidden>
+                        <div class="section-heading">PROFILE INFORMATION</div>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="customerId">Customer ID</label>
+                                    <input type="text" id="customerId"
+                                           name="customerId" value="TGM-0001" readonly>
+                                    <span class="field-hint">System generated · Not editable</span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="dateCreated">Date Created</label>
+                                    <input type="text" id="dateCreated"
+                                           name="dateCreated" readonly>
+                                    <span class="field-hint">System generated · Not editable</span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="createdBy">Created By</label>
+                                    <input type="text" id="createdBy"
+                                           name="createdBy" value="Administrator" readonly>
+                                    <span class="field-hint">System generated · Not editable</span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="assignedTo">Assigned To</label>
+                                    <input type="text" id="assignedTo"
+                                           name="assignedTo" value="Not Assigned" readonly>
+                                    <span class="field-hint">System generated · Not editable</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- PERSONAL DETAILS -->
+                    <section class="section">
+                        <div class="section-heading">PERSONAL DETAILS</div>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="lastName">Last Name <span class="required">*</span></label>
+                                    <input type="text" id="lastName" name="lastName"
+                                           placeholder="Enter last name" autocomplete="family-name" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="firstName">First Name <span class="required">*</span></label>
+                                    <input type="text" id="firstName" name="firstName"
+                                           placeholder="Enter first name" autocomplete="given-name" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="middleName">Middle Name</label>
+                                    <input type="text" id="middleName" name="middleName"
+                                           placeholder="Enter middle name">
+                                </div>
+
+                                <div class="field">
+                                    <label for="suffix">Suffix</label>
+                                    <select id="suffix" name="suffix">
+                                        <option value="">None</option>
+                                        <option>Jr.</option>
+                                        <option>Sr.</option>
+                                        <option>II</option>
+                                        <option>III</option>
+                                        <option>IV</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender">
+                                        <option value="">Select Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                        <option>Prefer not to say</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label for="fbLink">FB Account Link</label>
+                                    <input type="url" id="fbLink" name="fbLink"
+                                           placeholder="https://facebook.com/username">
+                                </div>
+
+                                <div class="field">
+                                    <label for="contactNumber">Contact Number <span class="required">*</span></label>
+                                    <input type="tel" id="contactNumber" name="contactNumber"
+                                           placeholder="09XXXXXXXXX" autocomplete="tel" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="civilStatus">Civil Status</label>
+                                    <select id="civilStatus" name="civilStatus">
+                                        <option value="">Select Civil Status</option>
+                                        <option>Single</option>
+                                        <option>Married</option>
+                                        <option>Widowed</option>
+                                        <option>Separated</option>
+                                        <option>Divorced</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label for="birthday">Birthday</label>
+                                    <input type="date" id="birthday" name="birthday">
+                                </div>
+
+                                <div class="field">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" name="age"
+                                           placeholder="Auto calculated" readonly>
+                                    <span class="field-hint">Automatically calculated from birthday</span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="birthPlace">Birth Place</label>
+                                    <input type="text" id="birthPlace" name="birthPlace"
+                                           placeholder="Enter birth place">
+                                </div>
+
+                                <div class="field">
+                                    <label for="religion">Religion</label>
+                                    <input type="text" id="religion" name="religion"
+                                           placeholder="Enter religion">
+                                </div>
+
+                                <div class="field full">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email"
+                                           placeholder="example@email.com" autocomplete="email">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CUSTOMER ADDRESS -->
+                    <section class="section">
+                        <div class="section-heading">CUSTOMER ADDRESS</div>
+                        <div class="section-content">
+
+                            <div class="form-grid">
+                                <div class="field full">
+                                    <label for="residentialStatus">
+                                        Residential Status <span class="required">*</span>
+                                    </label>
+                                    <select id="residentialStatus" name="residentialStatus" required>
+                                        <option value="">Select Residential Status</option>
+                                        <option value="Owned">Owned</option>
+                                        <option value="Rented">Rented</option>
+                                        <option value="Living with Parents">Living with Parents</option>
+                                        <option value="Living with Relatives">Living with Relatives</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- PERMANENT ADDRESS -->
+                            <div class="address-block">
+                                <h3 class="subsection-title">PERMANENT ADDRESS</h3>
+                                <div class="form-grid">
+                                    <div class="field full">
+                                        <label for="permanentUnit">Home Number / Lot / Unit / Floor</label>
+                                        <input type="text" id="permanentUnit" name="permanentUnit"
+                                               placeholder="Enter home number / lot / unit / floor">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="permanentStreet">Street</label>
+                                        <input type="text" id="permanentStreet" name="permanentStreet"
+                                               placeholder="Enter street">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="permanentBarangay">Barangay</label>
+                                        <input type="text" id="permanentBarangay" name="permanentBarangay"
+                                               placeholder="Enter barangay">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="permanentCity">City</label>
+                                        <input type="text" id="permanentCity" name="permanentCity"
+                                               placeholder="Enter city / municipality">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="permanentProvince">Province</label>
+                                        <input type="text" id="permanentProvince" name="permanentProvince"
+                                               placeholder="Enter province">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="permanentLengthStay">Length of Stay</label>
+                                        <input type="text" id="permanentLengthStay" name="permanentLengthStay"
+                                               placeholder="e.g. 5 years">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PRESENT ADDRESS: hidden when residential status is Owned -->
+                            <div class="address-block" id="presentAddressSection">
+                                <h3 class="subsection-title">PRESENT ADDRESS</h3>
+                                <div class="form-grid">
+                                    <div class="field full">
+                                        <label for="presentUnit">Home Number / Lot / Unit / Floor</label>
+                                        <input type="text" id="presentUnit" name="presentUnit"
+                                               placeholder="Enter home number / lot / unit / floor">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="presentStreet">Street</label>
+                                        <input type="text" id="presentStreet" name="presentStreet"
+                                               placeholder="Enter street">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="presentBarangay">Barangay</label>
+                                        <input type="text" id="presentBarangay" name="presentBarangay"
+                                               placeholder="Enter barangay">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="presentCity">City</label>
+                                        <input type="text" id="presentCity" name="presentCity"
+                                               placeholder="Enter city / municipality">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="presentProvince">Province</label>
+                                        <input type="text" id="presentProvince" name="presentProvince"
+                                               placeholder="Enter province">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="presentLengthStay">Length of Stay</label>
+                                        <input type="text" id="presentLengthStay" name="presentLengthStay"
+                                               placeholder="e.g. 2 years">
+                                    </div>
+
+                                    <div class="field">
+                                        <label for="monthlyRent">Monthly Rent / Mortgage (₱)</label>
+                                        <input type="number" id="monthlyRent" name="monthlyRent"
+                                               min="0" step="0.01" placeholder="Enter amount">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+
+                <footer class="modal-footer">
+                    <p class="footer-note">
+                        Fields marked <span class="required">*</span> are required.
+                        System-generated fields cannot be edited.
+                    </p>
+                    <div class="footer-actions">
+                        <button type="submit" class="btn btn-primary" id="saveProfileButton">
+                            <span aria-hidden="true">✓</span> Save Profile
+                        </button>
+                    </div>
+                </footer>
+            </form>
+        </section>
+    </div>
+<!-- End of Create Customer Profile -->
+
+
+<!-- Create Customer Ticket -->
+<!-- End of Create Customer Ticket -->
+
+<!-- Create Customer Application -->
+<!-- End of Create Customer Application -->
+
+</main>
+</div>
+<!-- END OF CUSTOMER PROFILE MAIN CONTENT -->
+    </main>
+<!-- END OF MAIN CONTENT AREA -->
+
+</div>
+
+<script src="../03JScript/00CreateProfile.js"></script>
+<script src="../03JScript/03.js"></script>
+<script src="../03JScript/04.js"></script>
+<script src="../03JScript/05.js"></script>
+<script src="../03JScript/06.js"></script>
+<script src="../03JScript/07.js"></script>
+<script src="../03JScript/08.js"></script>
+<script src="../03JScript/09.js"></script>
+<script src="../03JScript/10.js"></script>
+
+
+
+</body>
+</html>

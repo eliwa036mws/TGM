@@ -1,0 +1,348 @@
+/* =========================================================
+   TWIN GEAR MOTO - MY PROFILE
+   Employee profile left / Commission summary right
+========================================================= */
+
+.myProfile-container {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.myProfile-container *,
+.myProfile-container *::before,
+.myProfile-container *::after {
+    box-sizing: border-box;
+}
+
+/* Both columns must be direct children of this grid */
+.myProfile-container .myProfile-layout {
+    display: grid !important;
+    grid-template-columns: minmax(0, 2.15fr) minmax(210px, 1fr);
+    gap: 10px;
+    width: 100%;
+    align-items: start;
+}
+
+/* LEFT COLUMN */
+.myProfile-container .myProfile-information {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Employee name header */
+.myProfile-container .myProfile-heading {
+    position: relative;
+    width: 100%;
+    min-height: 65px;
+    padding: 8px 10px;
+    border: 1px solid #222;
+    background: #fff;
+}
+
+.myProfile-container .myProfile-heading h2 {
+    margin: 0 0 8px;
+    padding-right: 125px;
+    color: #111;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.myProfile-container .myProfile-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 15px;
+    color: #222;
+    font-size: 11px;
+}
+
+.myProfile-container .myProfile-actions {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+.myProfile-container .edit-btn {
+    padding: 5px 15px;
+    border: 1px solid #222;
+    background: #fff;
+    color: #111;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.myProfile-container .edit-btn:hover {
+    background: #222;
+    color: #fff;
+}
+
+/* Employee information panel */
+.myProfile-container .myProfileInfo-section {
+    width: 100%;
+    min-width: 0;
+    min-height: 370px;
+    padding: 15px;
+    border: 1px solid #222;
+    background: #fff;
+}
+
+.myProfile-container .section-header {
+    width: 100%;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.myProfile-container .section-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.myProfile-container .section-body {
+    width: 100%;
+}
+
+/* Form layout */
+.myProfile-container .form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.myProfile-container .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.myProfile-container .form-group label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.myProfile-container .form-group input,
+.myProfile-container .form-group select {
+    width: 100%;
+    min-width: 0;
+    height: 38px;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    background: #fff;
+}
+
+.myProfile-container .form-group input:focus,
+.myProfile-container .form-group select:focus {
+    border-color: #c90000;
+}
+
+.myProfile-container .form-group input:disabled,
+.myProfile-container .form-group select:disabled {
+    background: #f5f5f5;
+    color: #555;
+    cursor: not-allowed;
+}
+
+.myProfile-container .form-group.full {
+    grid-column: 1 / -1;
+}
+
+/* Save / Cancel buttons */
+.myProfile-container .edit-actions {
+    display: none;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.myProfile-container .edit-actions.active {
+    display: flex;
+}
+
+.myProfile-container .cancel-btn,
+.myProfile-container .save-btn {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.myProfile-container .cancel-btn {
+    background: #ddd;
+    color: #222;
+}
+
+.myProfile-container .save-btn {
+    background: #c90000;
+    color: #fff;
+}
+
+/* RIGHT COLUMN - COMMISSION */
+.myProfile-container .myProfile-commission {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.myProfile-container .commission-summary {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 282px;
+    padding: 10px;
+    border: 2px solid #222;
+    background: #fff;
+}
+
+.myProfile-container .commission-summary h3 {
+    flex: 0 0 auto;
+    margin: 0 0 8px;
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Commission status dropdown */
+.myProfile-container .commission-filter {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex: 0 0 auto;
+}
+
+.myProfile-container .commission-filter select {
+    width: 75%;
+    min-width: 0;
+    height: 24px;
+    padding: 2px 5px;
+    border: 1px solid #222;
+    border-radius: 0;
+    background: #fff;
+    color: #111;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Commission list / empty area */
+.myProfile-container .commission-summary-content {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 0;
+    margin-top: 0;
+    border: 1px solid #222;
+    overflow: auto;
+}
+
+.myProfile-container .view-all-commission {
+    color: #111;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+}
+
+.myProfile-container .view-all-commission:hover {
+    color: #c90000;
+    text-decoration: underline;
+}
+
+/* My Commission Records button */
+.myProfile-container .my-commission-button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.myProfile-container .my-commission-button a {
+    display: block;
+    width: 58%;
+    max-width: 150px;
+    padding: 8px 10px;
+    border: 1px solid #222;
+    background: #fff;
+    color: #111;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 18px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.myProfile-container .my-commission-button a:hover {
+    background: #222;
+    color: #fff;
+}
+
+/* Medium screens: retain side-by-side columns */
+@media screen and (max-width: 900px) and (min-width: 651px) {
+    .myProfile-container .myProfile-layout {
+        grid-template-columns: minmax(0, 1fr) 230px;
+    }
+}
+
+/* Small screens: stack commission underneath profile */
+@media screen and (max-width: 650px) {
+    .myProfile-container .myProfile-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .myProfile-container .myProfile-information {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .myProfile-container .myProfile-commission {
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: 10px;
+    }
+
+    .myProfile-container .commission-summary {
+        height: 280px;
+    }
+
+    .myProfile-container .myProfile-heading {
+        padding-bottom: 45px;
+    }
+
+    .myProfile-container .myProfile-heading h2 {
+        padding-right: 0;
+    }
+
+    .myProfile-container .myProfile-actions {
+        top: auto;
+        right: auto;
+        bottom: 8px;
+        left: 10px;
+    }
+
+    .myProfile-container .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .myProfile-container .form-group.full {
+        grid-column: 1;
+    }
+}

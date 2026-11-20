@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwinGear Moto Portal</title>
+    <link rel="stylesheet" href="../02CSS/00MainDesign.css"> <!-- Main Design -->
+    <link rel="stylesheet" href="../02CSS/01Dashboard.css"> <!-- Dashboard Design -->
+    <link rel="stylesheet" href="../02CSS/02Customer.css"><!-- Customer Content  Design -->
+    <link rel="stylesheet" href="../02CSS/03TicketBucket.css"><!-- Ticket Bucket Content  Design -->
+    <link rel="stylesheet" href="../02CSS/04MyProfile.css"><!-- My Profile Content  Design -->
+    <link rel="stylesheet" href="../02CSS/05Employee.css"><!-- Employee Content  Design -->
+    <link rel="stylesheet" href="../02CSS/06Commission.css"><!-- Commission Record Content  Design -->
+    <link rel="stylesheet" href="../02CSS/07Branches.css"><!-- Branches Content  Design -->
+    <link rel="stylesheet" href="../02CSS/08MotorPricelist.css"><!-- Motor Pricelist Content  Design -->
+    <link rel="stylesheet" href="../02CSS/09ArchiveFile.css"><!-- Archive File Content  Design -->
+
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Icons Link -->
+    <link rel="icon" type="image/png" href="../00Resource/LOGO.webp"> <!-- Picture Icon -->
+
+</head>
+<body>
+
+<div class="app-container">
+
+<!-- SIDEBAR -->
+    <aside class="sidebar">
+
+
+        <div class="company">
+            <div class="company-logo">
+                <img src="../00Resource/LOGO.webp" alt="TGM" width="100" height="100" bgcolor="fff">
+            </div>
+            <div>
+                <h2>TwinGear Moto</h2>
+                <p>Application Portal</p>
+            </div>
+        </div>
+
+        <div class="employee">
+            <div class="employee-avatar">EM</div>
+            <div>
+                <h3>Employee Name</h3>
+                <p>Employee Position</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <h4>WORKSPACE</h4>
+
+            <a href="../01HTML/01Dashboard.html" class="menu-link" data-page="Dashboard">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span class="menu-icon">Dashboard</span>
+            </a>
+
+            <a href="../01HTML/02Customer.html" class="menu-link" data-page="Customer">
+                <i class="fa-solid fa-users"></i>
+                <span class="menu-icon">Customer</span>
+                
+            </a>
+
+            <a href="../01HTML/03TicketBucket.html" class="menu-link" data-page="Ticket Bucket">
+                <i class="fa-solid fa-ticket"></i>
+                <span class="menu-icon">Ticket Bucket</span>
+            </a>
+
+
+            <br><h4>MANAGEMENT</h4>
+
+            <a href="../01HTML/04MyProfile.html" class="menu-link" data-page="My Profile">
+                <i class="fa-solid fa-user-circle"></i>
+                <span class="menu-icon">My Profile</span>
+            </a>
+
+            <a href="#" class="menu-link active" data-page="Employee's Profile">
+                <i class="fa-solid fa-user-tie"></i>
+                <span class="menu-icon">Employee's Profile</span>
+            </a>
+
+            <a href="../01HTML/06Commission.html" class="menu-link" data-page="Commission Records">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <span class="menu-icon">Commission Records</span>
+            </a>
+
+            <a href="../01HTML/07Branches.html" class="menu-link" data-page="Branches">
+                <i class="fa-solid fa-code-branch"></i>
+                <span class="menu-icon">Branches</span>
+            </a>
+
+            <a href="../01HTML/08MotorPricelist.html" class="menu-link" data-page="Motor Pricelist">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span class="menu-icon">Motor Pricelist</span>
+            </a>
+
+            <a href="../01HTML/09ArchiveFile.html" class="menu-link" data-page="Archive Files">
+                <i class="fa-solid fa-box-archive"></i>
+                <span class="menu-icon">Archive File's</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <a href ="../index.html">LOG OUT</a>
+            </button>
+        </div>
+
+    </aside>
+<!-- END OF SIDE BAR -->
+
+
+<!-- TOP BAR -->
+        <header class="top-header">
+
+            <div class="breadcrumb">
+                <span>MANAGEMENT</span>
+                <b>/</b>
+                <strong id="pageTitle">Employee Directory</strong>
+                <small>View Employee Record and Commission</small>
+            </div>
+
+            <div class="header-right">
+
+                <div class="search-box">
+                    <input type="search" id="globalSearch"
+                        placeholder="Search here ...">
+                    <button Ctype="button" id="searchBtn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <div class="datetime">
+                    <strong id="currentTime">00:00:00</strong>
+                    <span id="currentDate">MM / DD / YYYY</span>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    ☰
+                </button>
+
+            </div>
+
+        </header>
+<!-- END OF TOP BAR -->
+
+
+<!-- MY PROFILE MAIN CONTENT -->
+    <main class="main-area">
+
+    <section class="myProfile-content" id="myProfileContent"  >
+                <div class="welcome-header">
+                    <div>
+                        <h2>EMPLOYEE'S<span> PROFILE</span></h2>
+                    </div>
+
+                    <button type=button class="create-btn" id="openProfileModal">
+                        + Add New Employee
+                    </button>
+                </div>
+    </section>
+
+<!-- All Employee List -->
+    <section class="directory-container"  >
+
+            <!-- DIRECTORY HEADER -->
+            <div class="directory-header">
+
+                <!-- <h3>Customer Directory</h3> -->
+
+                <div class="directory-controls">
+
+                    <div class="search-box">
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search here ..."
+                            onkeyup="filterCustomers()"
+                        >
+
+                        <button onclick="filterCustomers()">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </div>
+
+
+                    <p> Employee: </p>
+                    <select class="filter-select" id="genderFilter" onchange="filterGender()" >
+                       <option value="allEmp">All</option>
+                        <option value="male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+
+                    <p> Access: </p>
+
+                    <select class="filter-select" id="empAccessFilter" onchange="filterEmpAccess()" >
+                       <option value="None">---</option>
+                        <option value="withAdminAccess">Has Admin Access</option>
+                        <option value="noAdminAccess">No Admin Access</option>
+                    </select>
+
+                </div>
+
+            
+
+            <!-- CUSTOMER SUMMARY -->
+                <div class="customer-summary">
+
+                    <span class="summary-label">
+                        Total Number of Employee
+                    </span>
+
+                    <span class="summary-count" id="customerCount">
+                        0
+                    </span>
+
+                    <span class="summary-text">
+                        Employees
+                    </span>
+
+                </div>
+
+
+            <!-- CUSTOMER TABLE -->
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Employee ID.</th>
+                                <th>Date Hired</th>
+                                <th>Full Name</th>
+                                <th>Position</th>
+                                <th>Contact No.</th>
+                                <th>Request Reset Password</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="customerTable">
+
+                            <tr>
+                                <td colspan="10" class="empty-message">
+                                    No Employee Records Found.
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+            </section>
+    </section>
+<!-- End Of All Employee List -->
+
+<!-- Employee Specific Profile -->
+
+    <section class="myProfile-container" hidden>
+
+    <div class="myProfile-layout">
+
+       <!-- ==================================
+             LEFT SIDE: CUSTOMER INFORMATION
+        =================================== -->
+
+        <section class="myProfile-information"  >
+
+            <!-- EMPLOYEE NAME / PROFILE HEADER -->
+    <div class="myProfile-heading">
+
+    <h2 id="myProfileName">Employee Name</h2>
+
+    <div class="myProfile-meta">
+
+        <span>
+            <strong>Employee ID:</strong>
+            <span id="displayMyProfileID">TGM-0001</span>
+        </span>
+
+        <span>
+            <strong>Date Hired:</strong>
+            <span id="displayDateCreated">--</span>
+        </span>
+
+    </div>
+
+    <div class="myProfile-actions">
+        <button class="edit-btn" id="editButton"
+            onclick="enableEdit()">
+            Edit Profile
+        </button>
+    </div>
+
+    </div>
+
+            <!-- EDIT PROFILE -->
+            
+
+            <!-- CUSTOMER BASIC INFORMATION -->
+            <section class="myProfileInfo-section">
+
+                <div class="section-header">
+                    <h3>Employee Information</h3>
+                </div>
+
+                <div class="section-body">
+
+                    <div class="form-grid">
+
+                        <!-- SYSTEM INFORMATION -->
+                        <div class="form-group">
+                            <label>Employee ID</label>
+                            <input type="text" id="myProfileID"
+                                value="Employee ID" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Date Hired</label>
+                            <input type="text" id="dateHired"
+                                value="Hired Date" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Position</label>
+                            <input type="text" id="empPosition"
+                                value="Employee Position" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Administration Access</label>
+                            <input type="text" id="assignedTo"
+                                value="True / False" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Employee's User</label>
+                            <input type="text" id="empUsername"
+                                value="Employee Username" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" id="empPassword"
+                                value="Password" disabled>
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <div class="section-header">
+                        <h3>PERSONAL INFORMATION</h3>
+                    </div>
+                    <br>
+
+                    
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Last Name *</label>
+                            <input type="text" id="lastName"
+                                placeholder="Enter last name" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>First Name *</label>
+                            <input type="text" id="firstName"
+                                placeholder="Enter first name" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Middle Name</label>
+                            <input type="text" id="middleName"
+                                placeholder="Enter middle name" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Suffix</label>
+                            <select id="suffix" disabled>
+                                <option value="">None</option>
+                                <option>Jr.</option>
+                                <option>Sr.</option>
+                                <option>II</option>
+                                <option>III</option>
+                                <option>IV</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select id="gender" disabled>
+                                <option value="">Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Birthday</label>
+                            <input type="date" id="birthday"
+                                onchange="calculateAge()" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contact Number *</label>
+                            <input type="tel" id="contactNumber"
+                                placeholder="09XXXXXXXXX" disabled>
+                        </div>
+
+                        <div class="form-group full">
+                            <label>Email Address</label>
+                            <input type="email" id="email"
+                                placeholder="example@email.com" disabled>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SAVE / CANCEL -->
+            <div class="edit-actions" id="editActions">
+
+                <button class="cancel-btn" onclick="cancelEdit()">
+                    Cancel
+                </button>
+
+                <button class="save-btn" onclick="saveProfile()">
+                    Save Changes
+                </button>
+
+            </div>
+    <!-- CLOSE EMPLOYEE INFORMATION DETAILS -->
+
+        </section>
+        <!-- END EMPLOYEE INFORMATION DETAILS -->
+
+        </section>
+        <!-- END LEFT SIDE: EMPLOYEE PROFILE -->
+
+
+    <!-- RIGHT SIDE: COMMISSION STATUS -->
+        <aside class="myProfile-commission">
+
+            <div class="commission-summary">
+
+                <h3>Commission Status</h3>
+
+                <div class="commission-filter">
+
+                    <select id="commissionStatusFilter"
+                        onchange="filterMyCommission(this.value)">
+
+                        <option value="all">All Commission</option>
+                        <option value="process">On Process</option>
+                        <option value="approved">Approved</option>
+                        <option value="released">Released</option>
+
+                    </select>
+
+                </div><br>
+                <div class="commission-summary-content"
+                    id="commissionSummaryContent">
+
+                    
+                        View All Commission
+                
+
+                </div>
+
+            </div>
+
+            <div class="my-commission-button">
+
+                <a href="../01HTML/06Commission.html">
+                    My Commission Records
+                </a>
+
+            </div>
+
+        </aside>
+        <!-- END RIGHT SIDE -->
+
+    </div>
+
+    </section>
+    </main>
+<!-- End of Employee Specific Profile -->
+
+<!-- Create Customer Profile -->
+    <!--
+      IMPORTANT:
+      The modal closes ONLY through the X button or the Close button.
+      Clicking the dark backdrop and pressing Escape do not close it.
+    -->
+    <div class="modal-overlay" id="profileModalOverlay"
+         aria-hidden="true">
+        <section class="profile-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="modalTitle">
+
+            <header class="modal-header">
+                <div>
+                    <h2 id="modalTitle">Create New Employee Profile</h2>
+                    <p>Enter the employee's personal information.</p>
+                </div>
+                <button type="button" class="modal-close"
+                        id="closeProfileX"
+                        aria-label="Close profile form"
+                        title="Close">&times;</button>
+            </header>
+
+            <form id="createProfileForm" novalidate>
+                <div class="modal-body">
+                    <div id="formMessage" class="form-message"
+                         role="status" aria-live="polite"></div>
+
+                    <!-- PROFILE INFORMATION -->
+                    <section class="section" >
+                        <div class="section-heading">EMPLOYEE INFORMATION</div>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="customerId">Employee ID</label>
+                                    <input type="text" id="customerId"
+                                           name="customerId" value="TGM-0001" disabled>
+                                    <span class="field-hint">System generated · Not editable</span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="dateHired">Date Hired</label>
+                                    <input type="text" id="dateHired"
+                                           name="dateHired" disabled>
+                                    <span class="field-hint">System generated · Not editable</span>
+                                </div>
+
+                                <div class="field">
+                                    <label for="empPosition">Position</label>
+                                    <input type="text" id="empPosition"
+                                           name="empPosition" value="Employee Position" >
+                                </div>
+
+                                <div class="field">
+                                    <label for="adminAccess">Administraion Access</label>
+                                    <input type="text" id="adminAccess"
+                                           name="adminAccess" value="True / False" >
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Employee's User</label>
+                                    <input type="text" id="empUsername"
+                                        value="Employee Username" >
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" id="empPassword"
+                                        value="Password" >
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- PERSONAL DETAILS -->
+                    <section class="section">
+                        <div class="section-heading">PERSONAL DETAILS</div>
+                        <div class="section-content">
+                            <div class="form-grid">
+                                <div class="field">
+                                    <label for="lastName">Last Name <span class="required">*</span></label>
+                                    <input type="text" id="lastName" name="lastName"
+                                           placeholder="Enter last name" autocomplete="family-name" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="firstName">First Name <span class="required">*</span></label>
+                                    <input type="text" id="firstName" name="firstName"
+                                           placeholder="Enter first name" autocomplete="given-name" required>
+                                </div>
+
+                                <div class="field">
+                                    <label for="middleName">Middle Name</label>
+                                    <input type="text" id="middleName" name="middleName"
+                                           placeholder="Enter middle name">
+                                </div>
+
+                                <div class="field">
+                                    <label for="suffix">Suffix</label>
+                                    <select id="suffix" name="suffix">
+                                        <option value="">None</option>
+                                        <option>Jr.</option>
+                                        <option>Sr.</option>
+                                        <option>II</option>
+                                        <option>III</option>
+                                        <option>IV</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label for="gender">Gender</label>
+                                    <select id="gender" name="gender">
+                                        <option value="">Select Gender</option>
+                                        <option>Male</option>
+                                        <option>Female</option>
+                                    </select>
+                                </div>
+
+                                <div class="field">
+                                    <label for="birthday">Birthday</label>
+                                    <input type="date" id="birthday" name="birthday">
+                                </div>
+
+                                <div class="field">
+                                    <label for="contactNumber">Contact Number <span class="required">*</span></label>
+                                    <input type="tel" id="contactNumber" name="contactNumber"
+                                           placeholder="09XXXXXXXXX" autocomplete="tel" required>
+                                </div>
+
+                                <div class="field ">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email"
+                                           placeholder="example@email.com" autocomplete="email">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <footer class="modal-footer">
+                    <p class="footer-note">
+                        Fields marked <span class="required">*</span> are required.
+                        System-generated fields cannot be edited.
+                    </p>
+                    <div class="footer-actions">
+                        <button type="submit" class="btn btn-primary" id="saveProfileButton">
+                            <span aria-hidden="true">✓</span> Save Profile
+                        </button>
+                    </div>
+                </footer>
+            </form>
+        </section>
+    </div>
+<!-- End of Create Customer Profile -->
+
+
+
+</div>
+
+<script src="../03JScript/00CreateProfile.js"></script>
+<script src="../03JScript/03.js"></script>
+<script src="../03JScript/04.js"></script>
+<script src="../03JScript/05.js"></script>
+<script src="../03JScript/06.js"></script>
+<script src="../03JScript/07.js"></script>
+<script src="../03JScript/08.js"></script>
+<script src="../03JScript/09.js"></script>
+<script src="../03JScript/10.js"></script>
+
+
+
+</body>
+</html>

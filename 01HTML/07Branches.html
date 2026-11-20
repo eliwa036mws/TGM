@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwinGear Moto Portal</title>
+    <link rel="stylesheet" href="../02CSS/00MainDesign.css"> <!-- Main Design -->
+    <link rel="stylesheet" href="../02CSS/01Dashboard.css"> <!-- Dashboard Design -->
+    <link rel="stylesheet" href="../02CSS/02Customer.css"><!-- Customer Content  Design -->
+    <link rel="stylesheet" href="../02CSS/03TicketBucket.css"><!-- Ticket Bucket Content  Design -->
+    <link rel="stylesheet" href="../02CSS/04MyProfile.css"><!-- My Profile Content  Design -->
+    <link rel="stylesheet" href="../02CSS/05Employee.css"><!-- Employee Content  Design -->
+    <link rel="stylesheet" href="../02CSS/06Commission.css"><!-- Commission Record Content  Design -->
+    <link rel="stylesheet" href="../02CSS/07Branches.css"><!-- Branches Content  Design -->
+    <link rel="stylesheet" href="../02CSS/08MotorPricelist.css"><!-- Motor Pricelist Content  Design -->
+    <link rel="stylesheet" href="../02CSS/09ArchiveFile.css"><!-- Archive File Content  Design -->
+
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> <!-- Icons Link -->
+    <link rel="icon" type="image/png" href="../00Resource/LOGO.webp"> <!-- Picture Icon -->
+
+</head>
+<body>
+
+<div class="app-container">
+
+<!-- SIDEBAR -->
+    <aside class="sidebar">
+
+
+        <div class="company">
+            <div class="company-logo">
+                <img src="../00Resource/LOGO.webp" alt="TGM" width="100" height="100" bgcolor="fff">
+            </div>
+            <div>
+                <h2>TwinGear Moto</h2>
+                <p>Application Portal</p>
+            </div>
+        </div>
+
+        <div class="employee">
+            <div class="employee-avatar">EM</div>
+            <div>
+                <h3>Employee Name</h3>
+                <p>Employee Position</p>
+            </div>
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <h4>WORKSPACE</h4>
+
+            <a href="../01HTML/01Dashboard.html" class="menu-link" data-page="Dashboard">
+                <i class="fa-solid fa-gauge-high"></i>
+                <span class="menu-icon">Dashboard</span>
+            </a>
+
+            <a href="../01HTML/02Customer.html" class="menu-link" data-page="Customer">
+                <i class="fa-solid fa-users"></i>
+                <span class="menu-icon">Customer</span>
+                
+            </a>
+
+            <a href="../01HTML/03TicketBucket.html" class="menu-link" data-page="Ticket Bucket">
+                <i class="fa-solid fa-ticket"></i>
+                <span class="menu-icon">Ticket Bucket</span>
+            </a>
+
+
+            <br><h4>MANAGEMENT</h4>
+
+            <a href="../01HTML/04MyProfile.html" class="menu-link" data-page="My Profile">
+                <i class="fa-solid fa-user-circle"></i>
+                <span class="menu-icon">My Profile</span>
+            </a>
+
+            <a href="../01HTML/05Employee.html" class="menu-link" data-page="Employee's Profile">
+                <i class="fa-solid fa-user-tie"></i>
+                <span class="menu-icon">Employee's Profile</span>
+            </a>
+
+            <a href="../01HTML/06Commission.html" class="menu-link" data-page="Commission Records">
+                <i class="fa-solid fa-money-bill-transfer"></i>
+                <span class="menu-icon">Commission Records</span>
+            </a>
+
+            <a href="#" class="menu-link active" data-page="Branches">
+                <i class="fa-solid fa-code-branch"></i>
+                <span class="menu-icon">Branches</span>
+            </a>
+
+            <a href="../01HTML/08MotorPricelist.html" class="menu-link" data-page="Motor Pricelist">
+                <i class="fa-solid fa-motorcycle"></i>
+                <span class="menu-icon">Motor Pricelist</span>
+            </a>
+
+            <a href="../01HTML/09ArchiveFile.html" class="menu-link" data-page="Archive Files">
+                <i class="fa-solid fa-box-archive"></i>
+                <span class="menu-icon">Archive File's</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <button class="logout-btn" id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <a href ="../index.html">LOG OUT</a>
+            </button>
+        </div>
+
+    </aside>
+<!-- END OF SIDE BAR -->
+
+
+<!-- TOP BAR -->
+        <header class="top-header">
+
+            <div class="breadcrumb">
+                <span>WORKSPACE</span>
+                <b>/</b>
+                <strong id="pageTitle">Dashboard</strong>
+                <small>Your business at a glance</small>
+            </div>
+
+            <div class="header-right">
+
+                <div class="search-box">
+                    <input type="search" id="globalSearch"
+                        placeholder="Search here ...">
+                    <button Ctype="button" id="searchBtn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <div class="datetime">
+                    <strong id="currentTime">00:00:00</strong>
+                    <span id="currentDate">MM / DD / YYYY</span>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    ☰
+                </button>
+
+            </div>
+
+        </header>
+<!-- END OF TOP BAR -->
+</div>
+
+<script src="../03JScript/00CreateProfile.js"></script>
+<script src="../03JScript/03.js"></script>
+<script src="../03JScript/04.js"></script>
+<script src="../03JScript/05.js"></script>
+<script src="../03JScript/06.js"></script>
+<script src="../03JScript/07.js"></script>
+<script src="../03JScript/08.js"></script>
+<script src="../03JScript/09.js"></script>
+<script src="../03JScript/10.js"></script>
+
+
+
+</body>
+</html>

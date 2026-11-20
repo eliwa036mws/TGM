@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TwinGear Moto Portal</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../TGM/02CSS/00LogIn.css">
+
+    <link rel="icon" type="image/png" href="../00Resource/LOGO.webp"> <!-- Picture Icon -->
+
+</head>
+<body>
+
+    <main class="login-container">
+
+        <!-- LEFT SIDE -->
+        <section class="left-section">
+
+            <div class="brand">
+                TWIN<span>GEAR</span> MOTO
+            </div>
+
+            <div class="tagline">
+                YOUR JOURNEY STARTS HERE
+            </div>
+
+            <div class="headline">
+                Ride with confidence.<br>
+                <strong>Move forward.</strong>
+            </div>
+
+            <p class="description">
+                Discover motorcycles built for adventure,
+                performance, and everyday journeys.
+            </p>
+
+            <div class="accent"></div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="right-section">
+
+            <h1>Welcome <span>Back</span></h1>
+
+            <p class="subtitle">
+                Login to continue your ride.
+            </p>
+
+            <form id="loginForm">
+
+                <!-- USERNAME -->
+                <div class="form-group">
+                    <label for="username">Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        
+                    >  <!-- Must be Required  -->
+                </div>
+
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+
+                    <label for="password">Password</label>
+
+                    <div class="password-container">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            
+                        > <!-- Must be Required  -->
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="show-btn"
+                        >
+                            Show
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+                <div class="options">
+
+                    <label class="remember">
+                        <input type="checkbox" id="rememberMe">
+                        Remember me
+                    </label>
+
+                    <a href="#" id="forgotPassword">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+            
+                
+                <button type="submit" class="login-btn">
+                    <a href="../TGM/01HTML/01Dashboard.html"><!-- For the mean time  -->
+                        Log In
+                    </a>
+                </button>
+                
+                <p id="message" class="message"></p>
+
+            </form>
+
+            <div class="footer">
+                Make it Till The End <span>!</span>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- JAVASCRIPT -->
+    <script src="#"></script>
+
+</body>
+</html>

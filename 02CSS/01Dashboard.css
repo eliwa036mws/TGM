@@ -1,0 +1,690 @@
+/* =========================================
+   MAIN CONTENT AREA
+========================================= */
+
+.main-area {
+    position: fixed;
+
+    top: var(--header-height);
+    left: var(--sidebar-width);
+    right: 0;
+    bottom: 0;
+
+    background: var(--light-bg);
+
+    padding: 28px;
+
+    /* ONLY THIS AREA SCROLLS */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    scroll-behavior: smooth;
+}
+
+/* Main Area Scrollbar */
+
+.main-area::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-area::-webkit-scrollbar-track {
+    background: #eee;
+}
+
+.main-area::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+}
+
+.main-area::-webkit-scrollbar-thumb:hover {
+    background: var(--red);
+}
+
+
+/* =========================================
+   DASHBOARD CONTENT
+========================================= */
+
+.dashboard-content {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   WELCOME HEADER
+========================================= */
+
+.welcome-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 25px;
+
+    gap: 15px;
+}
+
+.welcome-header h2 {
+    font-size: 23px;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.welcome-header h2 span {
+    color: var(--red);
+}
+
+.welcome-header p {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 7px;
+}
+
+
+/* CREATE PROFILE BUTTON */
+
+.create-btn {
+    padding: 12px 20px;
+
+    background: var(--red);
+    color: var(--white);
+
+    border: none;
+    border-radius: 6px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    box-shadow: 0 4px 10px rgba(229, 9, 20, 0.15);
+
+    transition: 0.25s;
+}
+
+.create-btn:hover {
+    background: var(--dark-red);
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   TOP STATISTICS
+========================================= */
+
+.top-statistics {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: var(--white);
+
+    padding: 22px;
+
+    min-height: 125px;
+
+    border-radius: 9px;
+
+    border: 1px solid #eee;
+
+    border-left: 4px solid var(--red);
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
+
+    transition: 0.25s;
+}
+
+.stat-card:hover,
+.bottom-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card h4 {
+    color: #666;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.stat-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+.stat-value strong {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.stat-value span {
+    font-size: 11px;
+    color: var(--gray);
+}
+
+
+/* =========================================
+   DATE RANGE CARD
+========================================= */
+
+.date-card {
+    border-left-color: var(--black);
+}
+
+.date-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 8px;
+
+    margin-top: 12px;
+}
+
+.date-input label {
+    font-size: 11px;
+    font-weight: 600;
+    color: #555;
+}
+
+.date-input input {
+    width: 65%;
+
+    padding: 7px;
+
+    border: 1px solid #ddd;
+    border-radius: 4px;
+
+    outline: none;
+
+    font-size: 10px;
+}
+
+.date-input input:focus {
+    border-color: var(--red);
+}
+
+
+/* =========================================
+   STATISTICS GRID
+========================================= */
+
+.statistics-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.statistics-section {
+    min-width: 0;
+}
+
+.section-title {
+    font-size: 13px;
+    font-weight: 800;
+
+    color: var(--black);
+
+    border-left: 4px solid var(--red);
+
+    padding: 4px 0 4px 12px;
+
+    margin-bottom: 13px;
+}
+
+
+/* =========================================
+   STATISTICS BOX
+========================================= */
+
+.statistics-box {
+    background: var(--white);
+
+    padding: 23px;
+
+    border: 1px solid #eee;
+    border-radius: 9px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
+}
+
+.statistics-box h4 {
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #444;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================================
+   PROGRESS ROWS
+========================================= */
+
+.progress-row {
+    display: grid;
+
+    grid-template-columns: 95px minmax(0, 1fr) 30px;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 22px;
+}
+
+.progress-row:last-child {
+    margin-bottom: 0;
+}
+
+.progress-row label {
+    font-size: 10px;
+    font-weight: 700;
+
+    color: #666;
+}
+
+.progress-row strong {
+    font-size: 12px;
+    text-align: right;
+    color: var(--black);
+}
+
+
+/* PROGRESS BAR */
+
+.progress-bar {
+    height: 9px;
+
+    background: #eee;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    border-radius: 20px;
+
+    transition: width 0.4s ease;
+}
+
+.progress-fill.red {
+    background: var(--red);
+}
+
+.progress-fill.orange {
+    background: var(--orange);
+}
+
+.progress-fill.green {
+    background: var(--green);
+}
+
+
+/* =========================================
+   COMMISSION SECTION
+========================================= */
+
+.commission-section {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+.commission-main {
+    min-width: 0;
+}
+
+.commission-main .statistics-box {
+    min-height: 150px;
+}
+
+
+/* TOTAL COMMISSION */
+
+.commission-total {
+    background: var(--black);
+
+    color: var(--white);
+
+    border-radius: 9px;
+
+    padding: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.commission-total::after {
+    content: '';
+
+    position: absolute;
+
+    right: -35px;
+    bottom: -55px;
+
+    width: 160px;
+    height: 160px;
+
+    border: 25px solid rgba(229, 9, 20, 0.25);
+    border-radius: 50%;
+}
+
+.commission-total h4 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.commission-total strong {
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--white);
+    z-index: 1;
+}
+
+
+/* =========================================
+   BOTTOM STATISTICS
+========================================= */
+
+.bottom-statistics {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.bottom-card {
+    background: var(--white);
+
+    padding: 23px;
+
+    border-radius: 9px;
+
+    border: 1px solid #eee;
+    border-top: 4px solid var(--red);
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
+
+    transition: 0.25s;
+}
+
+.bottom-card h4 {
+    color: #666;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.bottom-value {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    margin-top: 18px;
+}
+
+.bottom-value strong {
+    font-size: 30px;
+    font-weight: 800;
+    color: var(--black);
+}
+
+.bottom-value span {
+    font-size: 11px;
+    color: var(--gray);
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+/* TABLET */
+
+@media screen and (max-width: 1100px) {
+
+    :root {
+        --sidebar-width: 230px;
+    }
+
+    .top-statistics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .header-right {
+        gap: 12px;
+    }
+
+    .search-box {
+        width: 180px;
+    }
+
+    .main-area {
+        padding: 22px;
+    }
+}
+
+
+/* SMALL TABLET */
+
+@media screen and (max-width: 850px) {
+
+    :root {
+        --sidebar-width: 210px;
+        --header-height: 75px;
+    }
+
+    .sidebar {
+        padding: 18px 12px;
+    }
+
+    .company h2 {
+        font-size: 14px;
+    }
+
+    .top-header {
+        padding: 0 18px;
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .commission-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width: 650px) {
+
+    :root {
+        --sidebar-width: 260px;
+        --header-height: 70px;
+    }
+
+    /* Sidebar becomes a mobile drawer */
+
+    .sidebar {
+        width: var(--sidebar-width);
+
+        transform: translateX(-100%);
+
+        transition: transform 0.3s ease;
+    }
+
+    /* Add this class when opening the mobile sidebar */
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .top-header {
+        left: 0;
+        padding: 0 15px;
+    }
+
+    .main-area {
+        left: 0;
+        padding: 18px;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .breadcrumb small {
+        display: none;
+    }
+
+    .breadcrumb span,
+    .breadcrumb b {
+        display: none;
+    }
+
+    .breadcrumb strong {
+        font-size: 13px;
+    }
+
+    .search-box {
+        width: 150px;
+    }
+
+    .datetime {
+        display: none;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .welcome-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .welcome-header h2 {
+        font-size: 19px;
+    }
+
+    .top-statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .statistics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .commission-section {
+        grid-template-columns: 1fr;
+    }
+
+    .bottom-statistics {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-row {
+        grid-template-columns: 85px minmax(0, 1fr) 25px;
+        gap: 8px;
+    }
+
+    .stat-card {
+        min-height: 110px;
+    }
+}
+
+
+/* VERY SMALL MOBILE */
+
+@media screen and (max-width: 380px) {
+
+    .main-area {
+        padding: 12px;
+    }
+
+    .search-box {
+        width: 115px;
+    }
+
+    .welcome-header h2 {
+        font-size: 17px;
+    }
+
+    .create-btn {
+        width: 100%;
+    }
+
+    .statistics-box {
+        padding: 16px;
+    }
+
+}
+
+
+/* Fixed sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 265px;
+    height: 100vh;
+}
+
+/* Fixed topbar */
+.top-header {
+    position: fixed;
+    top: 0;
+    left: 265px;
+    right: 0;
+    height: 85px;
+}
+
+/* Scrollable main content */
+.main-area {
+    position: fixed;
+    top: 85px;
+    left: 265px;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Prevent body scrolling */
+body {
+    overflow: hidden;
+}
+
